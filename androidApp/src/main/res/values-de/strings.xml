@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_recipe_view">Rezept</string>
+    <string name="button_open_recipe_view">Rezept öffnen</string>
+    <string name="action_settings">Einstellungen</string>
+</resources>

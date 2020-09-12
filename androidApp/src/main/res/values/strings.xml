@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="title_main_activity">Main Activity</string>
+    <string name="title_main_activity" translatable="false">Cookbook</string>
     <string name="title_activity_recipe_view">Recipe</string>
-    <string name="large_text">
+    <string name="button_open_recipe_view">Open Recipe</string>
+    <string name="large_text" translatable="false">
         "Material is the metaphor.\n\n"
 
         "A material metaphor is the unifying theory of a rationalized space and a system of motion."
