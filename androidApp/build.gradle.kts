@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
     id("kotlin-android-extensions")
+    id("kotlin-android")
 }
 group = "com.wpaul15.cookbook"
 version = "1.0-SNAPSHOT"

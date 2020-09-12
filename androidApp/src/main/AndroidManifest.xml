@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.wpaul15.cookbook.androidApp">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.wpaul15.cookbook.androidApp">
 
     <application
-            android:allowBackup="false"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+        android:allowBackup="false"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".RecipeViewActivity"
+            android:label="@string/title_activity_recipe_view"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_main_activity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
