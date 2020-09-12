@@ -1,6 +1,7 @@
 package com.wpaul15.cookbook.shared
 
 enum class Unit(val unit: String) {
+    NONE(""),
     TEASPOON("Teaspoon (tsp)"),
     TABLESPOON("Tablespoon (Tbsp)"),
     FLUID_OUNCE("Fluid Ounce (fl oz)"),
