@@ -1,4 +1,4 @@
-package com.wpaul15.cookbook.androidApp.ui.main
+package com.wpaul15.cookbook.androidApp.ui.recipe
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

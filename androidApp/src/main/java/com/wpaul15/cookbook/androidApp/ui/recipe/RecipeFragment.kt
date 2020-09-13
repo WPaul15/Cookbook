@@ -1,4 +1,4 @@
-package com.wpaul15.cookbook.androidApp.ui.main
+package com.wpaul15.cookbook.androidApp.ui.recipe
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,11 +11,11 @@ import com.wpaul15.cookbook.androidApp.R
 
 class RecipeFragment : Fragment() {
 
-    private lateinit var pageViewModel: PageViewModel
+    private lateinit var recipeViewModel: RecipeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageViewModel = ViewModelProvider(this).get(PageViewModel::class.java).apply {
+        recipeViewModel = ViewModelProvider(this).get(RecipeViewModel::class.java).apply {
             setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
         }
     }
@@ -27,7 +27,7 @@ class RecipeFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_recipe, container, false)
         val textView: TextView = root.findViewById(R.id.section_label)
-        pageViewModel.text.observe(viewLifecycleOwner, {
+        recipeViewModel.text.observe(viewLifecycleOwner, {
             textView.text = it
         })
         return root

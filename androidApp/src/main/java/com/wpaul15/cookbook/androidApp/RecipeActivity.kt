@@ -7,7 +7,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.wpaul15.cookbook.androidApp.ui.main.RecipePagerAdapter
+import com.wpaul15.cookbook.androidApp.ui.recipe.RecipePagerAdapter
 
 private val TAB_TITLES = arrayOf(
     R.string.tab_ingredients,
