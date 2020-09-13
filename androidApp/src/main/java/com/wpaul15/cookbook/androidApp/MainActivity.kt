@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openRecipeViewActivity(view: View) {
-        val intent = Intent(this, RecipeViewActivity::class.java)
+        val intent = Intent(this, RecipeActivity::class.java)
         startActivity(intent)
     }
 }

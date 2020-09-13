@@ -1,6 +1,6 @@
 package com.wpaul15.cookbook.shared
 
-class Recipe(private var name: String) {
+class Recipe(var name: String) {
 
     private val ingredients = mutableListOf<Ingredient>()
 
