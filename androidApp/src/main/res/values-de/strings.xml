@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="button_open_recipe_view">Rezept öffnen</string>
-    <string name="title_activity_recipe">Rezept</string>
-    <string name="tab_ingredients">Zutaten</string>
-    <string name="tab_preparation">Zubereitung</string>
-    <string name="tab_notes">Notizen</string>
+	<string name="button_open_recipe_view">Rezept öffnen</string>
+	<string name="title_activity_recipe">Rezept</string>
+	<string name="tab_ingredients">Zutaten</string>
+	<string name="tab_preparation">Zubereitung</string>
+	<string name="tab_notes">Notizen</string>
 </resources>

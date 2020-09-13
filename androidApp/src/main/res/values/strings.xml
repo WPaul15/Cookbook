@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="title_main_activity" translatable="false">Cookbook</string>
-    <string name="title_activity_recipe">Recipe</string>
-    <string name="button_open_recipe_view">Open Recipe</string>
-    <string name="tab_ingredients">Ingredients</string>
-    <string name="tab_preparation">Preparation</string>
-    <string name="tab_notes">Notes</string>
+	<string name="title_main_activity" translatable="false">Cookbook</string>
+	<string name="title_activity_recipe">Recipe</string>
+	<string name="button_open_recipe_view">Open Recipe</string>
+	<string name="tab_ingredients">Ingredients</string>
+	<string name="tab_preparation">Preparation</string>
+	<string name="tab_notes">Notes</string>
 </resources>

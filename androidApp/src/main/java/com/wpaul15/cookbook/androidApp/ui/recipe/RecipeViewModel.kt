@@ -7,12 +7,12 @@ import androidx.lifecycle.ViewModel
 
 class RecipeViewModel : ViewModel() {
 
-    private val index = MutableLiveData<Int>()
-    val text: LiveData<String> = Transformations.map(index) {
-        "Hello world from section: $it"
-    }
+	private val index = MutableLiveData<Int>()
+	val text: LiveData<String> = Transformations.map(index) {
+		"Hello world from section: $it"
+	}
 
-    fun setIndex(index: Int) {
-        this.index.value = index
-    }
+	fun setIndex(index: Int) {
+		this.index.value = index
+	}
 }

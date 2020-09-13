@@ -6,13 +6,14 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
 
-    fun openRecipeViewActivity(view: View) {
-        val intent = Intent(this, RecipeActivity::class.java)
-        startActivity(intent)
-    }
+	override fun onCreate(savedInstanceState: Bundle?) {
+		super.onCreate(savedInstanceState)
+		setContentView(R.layout.activity_main)
+	}
+
+	fun openRecipeViewActivity(view: View) {
+		val intent = Intent(this, RecipeActivity::class.java)
+		startActivity(intent)
+	}
 }
