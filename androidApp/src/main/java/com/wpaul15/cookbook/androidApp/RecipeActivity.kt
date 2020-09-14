@@ -23,6 +23,9 @@ class RecipeActivity : AppCompatActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_recipe)
+		setSupportActionBar(findViewById(R.id.toolbar_recipe))
+		supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
 		recipePagerAdapter = RecipePagerAdapter(this, TAB_TITLES.size)
 		viewPager = findViewById(R.id.view_pager)
 		viewPager.adapter = recipePagerAdapter

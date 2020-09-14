@@ -8,10 +8,6 @@
 		android:theme="@style/AppTheme"
 		android:icon="@drawable/ic_android_black_24dp">
 		<activity
-			android:name=".RecipeActivity"
-			android:label="@string/title_activity_recipe"
-			android:theme="@style/AppTheme.NoActionBar" />
-		<activity
 			android:name=".MainActivity"
 			android:label="@string/title_main_activity">
 			<intent-filter>
@@ -20,6 +16,11 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
+		<activity
+			android:name=".RecipeActivity"
+			android:label="@string/title_activity_recipe"
+			android:parentActivityName=".MainActivity"
+			android:theme="@style/AppTheme.NoActionBar" />
 	</application>
 
 </manifest>
