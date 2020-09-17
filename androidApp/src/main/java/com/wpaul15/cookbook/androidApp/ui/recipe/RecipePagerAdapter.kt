@@ -10,5 +10,5 @@ class RecipePagerAdapter(fragmentActivity: FragmentActivity, private val numTabs
 	override fun getItemCount(): Int = numTabs
 
 	override fun createFragment(position: Int): Fragment =
-		RecipeFragment.newInstance(position + 1)
+		IngredientsFragment.newInstance(position + 1)
 }

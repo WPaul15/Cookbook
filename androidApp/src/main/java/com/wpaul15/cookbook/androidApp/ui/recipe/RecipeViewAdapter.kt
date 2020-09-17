@@ -23,14 +23,10 @@ class RecipeViewAdapter(private val recipe: Recipe) :
 	class IngredientViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
 		RecyclerView.ViewHolder(inflater.inflate(R.layout.view_holder_ingredient, parent, false)) {
 
-		private var textAmount: TextView = itemView.findViewById(R.id.text_ingredient_amount)
-		private var textUnit: TextView = itemView.findViewById(R.id.text_ingredient_unit)
-		private var textName: TextView = itemView.findViewById(R.id.text_ingredient_name)
+		private var textIngredient: TextView = itemView.findViewById(R.id.text_ingredient)
 
 		fun bind(ingredient: Ingredient) {
-			textAmount.text = "${ingredient.amount}"
-			textUnit.text = "${ingredient.unit}"
-			textName.text = ingredient.name
+			textIngredient.text = "$ingredient"
 		}
 	}
 }

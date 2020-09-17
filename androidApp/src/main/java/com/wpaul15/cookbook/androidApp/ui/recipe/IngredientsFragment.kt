@@ -14,7 +14,7 @@ import com.wpaul15.cookbook.shared.Ingredient
 import com.wpaul15.cookbook.shared.Recipe
 import com.wpaul15.cookbook.shared.Unit
 
-class RecipeFragment : Fragment() {
+class IngredientsFragment : Fragment() {
 
 	private var _binding: FragmentIngredientsBinding? = null
 	private val binding get() = _binding!!
@@ -68,8 +68,8 @@ class RecipeFragment : Fragment() {
 
 		private const val ARG_SECTION_NUMBER = "section_number"
 
-		fun newInstance(sectionNumber: Int): RecipeFragment {
-			return RecipeFragment().apply {
+		fun newInstance(sectionNumber: Int): IngredientsFragment {
+			return IngredientsFragment().apply {
 				arguments = Bundle().apply {
 					putInt(ARG_SECTION_NUMBER, sectionNumber)
 				}
