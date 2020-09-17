@@ -8,7 +8,7 @@
 		android:theme="@style/AppTheme"
 		android:icon="@drawable/ic_android_black_24dp">
 		<activity
-			android:name=".MainActivity"
+			android:name=".ui.main.MainActivity"
 			android:label="@string/title_main_activity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
@@ -17,9 +17,9 @@
 			</intent-filter>
 		</activity>
 		<activity
-			android:name=".RecipeActivity"
+			android:name=".ui.recipe.RecipeActivity"
 			android:label="@string/title_activity_recipe"
-			android:parentActivityName=".MainActivity"
+			android:parentActivityName=".ui.main.MainActivity"
 			android:theme="@style/AppTheme.NoActionBar" />
 	</application>
 

@@ -2,7 +2,7 @@ package com.wpaul15.cookbook.shared
 
 class Recipe(var name: String) {
 
-	private val ingredients = mutableListOf<Ingredient>()
+	val ingredients = mutableListOf<Ingredient>()
 
 	fun addIngredient(ingredient: Ingredient) {
 		this.ingredients.add(ingredient)

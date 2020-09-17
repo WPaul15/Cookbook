@@ -20,6 +20,8 @@ dependencies {
 	implementation("com.google.android.material:material:1.2.1")
 	implementation("androidx.appcompat:appcompat:1.2.0")
 	implementation("androidx.constraintlayout:constraintlayout:2.0.1")
+	implementation("androidx.recyclerview:recyclerview:1.1.0")
+	implementation("androidx.recyclerview:recyclerview-selection:1.1.0-rc02")
 	implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
 	implementation("androidx.fragment:fragment-ktx:1.2.5")
 
@@ -35,7 +37,7 @@ android {
 	compileSdkVersion(30)
 	defaultConfig {
 		applicationId = "com.wpaul15.cookbook.androidApp"
-		minSdkVersion(24)
+		minSdkVersion(26)
 		targetSdkVersion(30)
 		versionCode = 1
 		versionName = "1.0"
@@ -45,7 +47,18 @@ android {
 			isMinifyEnabled = false
 		}
 	}
+	buildFeatures {
+		viewBinding = true
+	}
 	kotlinOptions {
 		jvmTarget = "11"
+	}
+	sourceSets {
+		getByName("main").res.srcDirs(
+			"src/main/res",
+			"src/main/res/layouts",
+			"src/main/res/layouts/main",
+			"src/main/res/layouts/recipe"
+		)
 	}
 }
