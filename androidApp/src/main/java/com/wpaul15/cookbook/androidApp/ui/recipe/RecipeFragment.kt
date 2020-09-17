@@ -42,15 +42,13 @@ class RecipeFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		val recipe1 = Recipe("Recipe 1")
-		recipe1.addIngredient(Ingredient("Flour", 1.0, Unit.CUP))
-
-		val recipe2 = Recipe("Recipe 2")
-		recipe2.addIngredient(Ingredient("Sugar", 1.0, Unit.TABLESPOON))
+		val recipe = Recipe("Recipe 1")
+		recipe.addIngredient(Ingredient("Flour", 1.0, Unit.CUP))
+		recipe.addIngredient(Ingredient("Sugar", 1.0, Unit.TABLESPOON))
 
 
 		viewManager = LinearLayoutManager(view.context)
-		viewAdapter = RecipeViewAdapter(mutableListOf(recipe1, recipe2))
+		viewAdapter = RecipeViewAdapter(recipe)
 
 		recyclerView = binding.recyclerViewRecipe.apply {
 			setHasFixedSize(true)
