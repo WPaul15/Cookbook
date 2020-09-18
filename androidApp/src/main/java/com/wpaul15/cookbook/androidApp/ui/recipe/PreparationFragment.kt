@@ -9,14 +9,12 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.wpaul15.cookbook.androidApp.databinding.FragmentIngredientsBinding
-import com.wpaul15.cookbook.shared.Ingredient
+import com.wpaul15.cookbook.androidApp.databinding.FragmentPreparationBinding
 import com.wpaul15.cookbook.shared.Recipe
-import com.wpaul15.cookbook.shared.Unit
 
-class IngredientsFragment : Fragment() {
+class PreparationFragment : Fragment() {
 
-	private var _binding: FragmentIngredientsBinding? = null
+	private var _binding: FragmentPreparationBinding? = null
 	private val binding get() = _binding!!
 
 	private lateinit var recyclerView: RecyclerView
@@ -27,8 +25,7 @@ class IngredientsFragment : Fragment() {
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
-		// Can be removed later
-		recipeViewModel.apply { setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1) }
+		recipeViewModel.apply { setIndex(arguments?.getInt(ARG_RECIPE) ?: 1) }
 	}
 
 	override fun onCreateView(
@@ -36,21 +33,17 @@ class IngredientsFragment : Fragment() {
 		container: ViewGroup?,
 		savedInstanceState: Bundle?
 	): View? {
-		_binding = FragmentIngredientsBinding.inflate(inflater, container, false)
+		_binding = FragmentPreparationBinding.inflate(inflater, container, false)
 		return binding.root
 	}
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		val recipe = Recipe("Recipe 1")
-		recipe.addIngredient(Ingredient("Flour", 1.0, Unit.CUP))
-		recipe.addIngredient(Ingredient("Sugar", 1.0, Unit.TABLESPOON))
-
 		viewManager = LinearLayoutManager(view.context)
-		viewAdapter = IngredientViewAdapter(recipe)
+		viewAdapter = PreparationViewAdapter(Recipe("Test"))
 
-		recyclerView = binding.recyclerViewIngredients.apply {
+		recyclerView = binding.recyclerViewPreparation.apply {
 			setHasFixedSize(true)
 			layoutManager = viewManager
 			adapter = viewAdapter
@@ -65,13 +58,14 @@ class IngredientsFragment : Fragment() {
 
 	companion object {
 
-		private const val ARG_SECTION_NUMBER = "section_number"
+		private const val ARG_RECIPE = "recipe"
 
-		fun newInstance(sectionNumber: Int): IngredientsFragment =
-			IngredientsFragment().apply {
+		fun newInstance(sectionNumber: Int): PreparationFragment =
+			PreparationFragment().apply {
 				arguments = Bundle().apply {
-					putInt(ARG_SECTION_NUMBER, sectionNumber)
+					putInt(ARG_RECIPE, sectionNumber)
 				}
 			}
 	}
+
 }

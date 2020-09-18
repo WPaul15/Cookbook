@@ -10,5 +10,9 @@ class RecipePagerAdapter(fragmentActivity: FragmentActivity, private val numTabs
 	override fun getItemCount(): Int = numTabs
 
 	override fun createFragment(position: Int): Fragment =
-		IngredientsFragment.newInstance(position + 1)
+		when (position) {
+			0, 2 -> IngredientsFragment.newInstance(position + 1)
+			1 -> PreparationFragment.newInstance(position + 1)
+			else -> throw Exception("Invalid tab")
+		}
 }
