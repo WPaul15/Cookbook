@@ -18,7 +18,7 @@ class RecipePagerAdapter(
 		when (position) {
 			0 -> IngredientsFragment.newInstance(recipe)
 			1 -> PreparationFragment.newInstance(recipe)
-			2 -> IngredientsFragment.newInstance(recipe)
+			2 -> NotesFragment.newInstance(recipe)
 			else -> throw Exception("Invalid tab")
 		}
 }

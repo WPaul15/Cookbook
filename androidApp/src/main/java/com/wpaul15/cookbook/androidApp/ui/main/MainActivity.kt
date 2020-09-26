@@ -25,11 +25,12 @@ class MainActivity : AppCompatActivity() {
 
 	fun openRecipeViewActivity(view: View) {
 		val recipe = Recipe("Pancakes")
-		recipe.addIngredient(Ingredient("Flour", 1.0, Measurement.CUP))
-		recipe.addIngredient(Ingredient("Sugar", 1.0, Measurement.TABLESPOON))
+		recipe.addIngredient(0, Ingredient("Flour", 1.0, Measurement.CUP))
+		recipe.addIngredient(1, Ingredient("Sugar", 1.0, Measurement.TABLESPOON))
 		recipe.addInstruction(0, "Mix ingredients together in a medium mixing bowl until smooth")
 		recipe.addInstruction(1, "Heat pan")
 		recipe.addInstruction(2, "Add batter to pan")
+		recipe.addNote(0, "Make sure not to let the pancakes cook for too long on either side")
 
 		val intent = Intent(this, RecipeActivity::class.java).apply {
 			putExtra(RecipeViewModel.RECIPE_KEY, recipe)
