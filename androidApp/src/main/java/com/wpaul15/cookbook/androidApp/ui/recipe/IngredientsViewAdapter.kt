@@ -8,8 +8,8 @@ import com.wpaul15.cookbook.androidApp.R
 import com.wpaul15.cookbook.shared.Ingredient
 import com.wpaul15.cookbook.shared.Recipe
 
-class IngredientViewAdapter(private val recipe: Recipe) :
-	RecyclerView.Adapter<IngredientViewAdapter.IngredientViewHolder>() {
+class IngredientsViewAdapter(private val recipe: Recipe) :
+	RecyclerView.Adapter<IngredientsViewAdapter.IngredientViewHolder>() {
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientViewHolder =
 		IngredientViewHolder(LayoutInflater.from(parent.context), parent)

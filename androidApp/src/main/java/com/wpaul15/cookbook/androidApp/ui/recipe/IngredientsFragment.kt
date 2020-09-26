@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wpaul15.cookbook.androidApp.databinding.FragmentIngredientsBinding
-import com.wpaul15.cookbook.shared.Ingredient
 import com.wpaul15.cookbook.shared.Recipe
-import com.wpaul15.cookbook.shared.Unit
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class IngredientsFragment : Fragment() {
 
 	private var _binding: FragmentIngredientsBinding? = null
@@ -25,11 +25,9 @@ class IngredientsFragment : Fragment() {
 
 	private val recipeViewModel: RecipeViewModel by activityViewModels()
 
-	override fun onCreate(savedInstanceState: Bundle?) {
-		super.onCreate(savedInstanceState)
-		// Can be removed later
-		recipeViewModel.apply { setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1) }
-	}
+//	override fun onCreate(savedInstanceState: Bundle?) {
+//		super.onCreate(savedInstanceState)
+//	}
 
 	override fun onCreateView(
 		inflater: LayoutInflater,
@@ -43,12 +41,10 @@ class IngredientsFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		val recipe = Recipe("Recipe 1")
-		recipe.addIngredient(Ingredient("Flour", 1.0, Unit.CUP))
-		recipe.addIngredient(Ingredient("Sugar", 1.0, Unit.TABLESPOON))
-
 		viewManager = LinearLayoutManager(view.context)
-		viewAdapter = IngredientViewAdapter(recipe)
+		viewAdapter = arguments?.getParcelable<Recipe>(RecipeViewModel.RECIPE_KEY)?.let {
+			IngredientsViewAdapter(it)
+		}!!
 
 		recyclerView = binding.recyclerViewIngredients.apply {
 			setHasFixedSize(true)
@@ -65,12 +61,10 @@ class IngredientsFragment : Fragment() {
 
 	companion object {
 
-		private const val ARG_SECTION_NUMBER = "section_number"
-
-		fun newInstance(sectionNumber: Int): IngredientsFragment =
+		fun newInstance(recipe: Recipe): IngredientsFragment =
 			IngredientsFragment().apply {
 				arguments = Bundle().apply {
-					putInt(ARG_SECTION_NUMBER, sectionNumber)
+					putParcelable(RecipeViewModel.RECIPE_KEY, recipe)
 				}
 			}
 	}

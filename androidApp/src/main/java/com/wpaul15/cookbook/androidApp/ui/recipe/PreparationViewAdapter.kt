@@ -14,13 +14,13 @@ class PreparationViewAdapter(private val recipe: Recipe) :
 		PreparationViewHolder(LayoutInflater.from(parent.context), parent)
 
 	override fun onBindViewHolder(holder: PreparationViewHolder, position: Int) {
-		holder.bind(position, recipe.instructions[position])
+		holder.bind(position + 1, recipe.instructions[position])
 	}
 
 	override fun getItemCount(): Int = recipe.instructions.size
 
 	class PreparationViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
-		RecyclerView.ViewHolder(inflater.inflate(R.layout.view_holder_ingredient, parent, false)) {
+		RecyclerView.ViewHolder(inflater.inflate(R.layout.view_holder_preparation, parent, false)) {
 
 		private var textStepNumber: TextView = itemView.findViewById(R.id.text_step_number)
 		private var textInstruction: TextView = itemView.findViewById(R.id.text_instruction)

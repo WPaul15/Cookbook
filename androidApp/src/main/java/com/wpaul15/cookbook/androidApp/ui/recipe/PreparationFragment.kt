@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wpaul15.cookbook.androidApp.databinding.FragmentPreparationBinding
 import com.wpaul15.cookbook.shared.Recipe
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PreparationFragment : Fragment() {
 
 	private var _binding: FragmentPreparationBinding? = null
@@ -23,10 +25,10 @@ class PreparationFragment : Fragment() {
 
 	private val recipeViewModel: RecipeViewModel by activityViewModels()
 
-	override fun onCreate(savedInstanceState: Bundle?) {
-		super.onCreate(savedInstanceState)
-		recipeViewModel.apply { setIndex(arguments?.getInt(ARG_RECIPE) ?: 1) }
-	}
+//	override fun onCreate(savedInstanceState: Bundle?) {
+//		super.onCreate(savedInstanceState)
+//		recipeViewModel.apply { setIndex(arguments?.getInt(ARG_RECIPE) ?: 1) }
+//	}
 
 	override fun onCreateView(
 		inflater: LayoutInflater,
@@ -41,7 +43,9 @@ class PreparationFragment : Fragment() {
 		super.onViewCreated(view, savedInstanceState)
 
 		viewManager = LinearLayoutManager(view.context)
-		viewAdapter = PreparationViewAdapter(Recipe("Test"))
+		viewAdapter = arguments?.getParcelable<Recipe>(RecipeViewModel.RECIPE_KEY)?.let {
+			PreparationViewAdapter(it)
+		}!!
 
 		recyclerView = binding.recyclerViewPreparation.apply {
 			setHasFixedSize(true)
@@ -58,14 +62,11 @@ class PreparationFragment : Fragment() {
 
 	companion object {
 
-		private const val ARG_RECIPE = "recipe"
-
-		fun newInstance(sectionNumber: Int): PreparationFragment =
+		fun newInstance(recipe: Recipe): PreparationFragment =
 			PreparationFragment().apply {
 				arguments = Bundle().apply {
-					putInt(ARG_RECIPE, sectionNumber)
+					putParcelable(RecipeViewModel.RECIPE_KEY, recipe)
 				}
 			}
 	}
-
 }

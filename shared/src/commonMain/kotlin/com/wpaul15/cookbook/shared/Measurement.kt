@@ -1,6 +1,6 @@
 package com.wpaul15.cookbook.shared
 
-enum class Unit(val unit: String) {
+enum class Measurement(private val unit: String) {
 	NONE(""),
 	TEASPOON("Teaspoon (tsp)"),
 	TABLESPOON("Tablespoon (Tbsp)"),

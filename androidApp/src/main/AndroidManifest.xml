@@ -6,7 +6,8 @@
 		android:allowBackup="false"
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme"
-		android:icon="@drawable/ic_android_black_24dp">
+		android:icon="@drawable/ic_android_black_24dp"
+		android:name=".ui.main.CookbookApplication">
 		<activity
 			android:name=".ui.main.MainActivity"
 			android:label="@string/title_main_activity">

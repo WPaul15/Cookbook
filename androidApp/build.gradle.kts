@@ -3,6 +3,8 @@ plugins {
 	kotlin("android")
 	id("kotlin-android-extensions")
 	id("kotlin-android")
+	kotlin("kapt")
+	id("dagger.hilt.android.plugin")
 }
 group = "com.wpaul15.cookbook"
 version = "1.0-SNAPSHOT"
@@ -14,11 +16,9 @@ repositories {
 	mavenCentral()
 }
 dependencies {
+	implementation(project(":shared"))
 	implementation("androidx.legacy:legacy-support-v4:1.0.0")
 	implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
-	val navVersion = "2.3.0"
-
-	implementation(project(":shared"))
 	implementation("com.google.android.material:material:1.2.1")
 	implementation("androidx.appcompat:appcompat:1.2.0")
 	implementation("androidx.constraintlayout:constraintlayout:2.0.1")
@@ -26,7 +26,12 @@ dependencies {
 	implementation("androidx.recyclerview:recyclerview-selection:1.1.0-rc02")
 	implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
 	implementation("androidx.fragment:fragment-ktx:1.2.5")
+	implementation("com.google.dagger:hilt-android:2.29-alpha")
+	implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02")
+	kapt("androidx.hilt:hilt-compiler:1.0.0-alpha02")
+	kapt("com.google.dagger:hilt-android-compiler:2.29-alpha")
 
+	val navVersion = "2.3.0"
 	implementation("androidx.navigation:navigation-fragment:$navVersion")
 	implementation("androidx.navigation:navigation-ui:$navVersion")
 	implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
@@ -53,7 +58,11 @@ android {
 		viewBinding = true
 	}
 	kotlinOptions {
-		jvmTarget = "11"
+		jvmTarget = "1.8"
+	}
+	compileOptions {
+		sourceCompatibility = JavaVersion.VERSION_1_8
+		targetCompatibility = JavaVersion.VERSION_1_8
 	}
 	sourceSets {
 		getByName("main").res.srcDirs(

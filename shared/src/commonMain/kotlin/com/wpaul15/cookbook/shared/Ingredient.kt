@@ -1,8 +1,6 @@
 package com.wpaul15.cookbook.shared
 
-class Ingredient(var name: String, var amount: Double, var unit: Unit) {
+expect class Ingredient(name: String, amount: Double, measurement: Measurement) {
 
-	override fun toString(): String = buildString {
-		append(amount).append(' ').append(unit).append(' ').append(name)
-	}
+	override fun toString(): String
 }
