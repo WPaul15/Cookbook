@@ -61,7 +61,7 @@ class IngredientsFragment : Fragment() {
 
 	companion object {
 
-		fun newInstance(recipe: Recipe): IngredientsFragment =
+		fun newInstance(recipe: Recipe) =
 			IngredientsFragment().apply {
 				arguments = Bundle().apply {
 					putParcelable(RecipeViewModel.RECIPE_KEY, recipe)
