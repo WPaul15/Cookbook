@@ -9,14 +9,14 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.wpaul15.cookbook.androidApp.databinding.FragmentPreparationBinding
+import com.wpaul15.cookbook.androidApp.databinding.FragmentNotesBinding
 import com.wpaul15.cookbook.shared.Recipe
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PreparationFragment : Fragment() {
+class NotesFragment : Fragment() {
 
-	private var _binding: FragmentPreparationBinding? = null
+	private var _binding: FragmentNotesBinding? = null
 	private val binding get() = _binding!!
 
 	private lateinit var recyclerView: RecyclerView
@@ -27,15 +27,17 @@ class PreparationFragment : Fragment() {
 
 //	override fun onCreate(savedInstanceState: Bundle?) {
 //		super.onCreate(savedInstanceState)
-//		recipeViewModel.apply { setIndex(arguments?.getInt(ARG_RECIPE) ?: 1) }
+//		arguments?.let {
+//			param1 = it.getString(ARG_PARAM1)
+//			param2 = it.getString(ARG_PARAM2)
+//		}
 //	}
 
 	override fun onCreateView(
-		inflater: LayoutInflater,
-		container: ViewGroup?,
+		inflater: LayoutInflater, container: ViewGroup?,
 		savedInstanceState: Bundle?
 	): View? {
-		_binding = FragmentPreparationBinding.inflate(inflater, container, false)
+		_binding = FragmentNotesBinding.inflate(inflater, container, false)
 		return binding.root
 	}
 
@@ -44,10 +46,10 @@ class PreparationFragment : Fragment() {
 
 		viewManager = LinearLayoutManager(view.context)
 		viewAdapter = arguments?.getParcelable<Recipe>(RecipeViewModel.RECIPE_KEY)?.let {
-			PreparationViewAdapter(it)
+			NotesViewAdapter(it)
 		}!!
 
-		recyclerView = binding.recyclerViewPreparation.apply {
+		recyclerView = binding.recyclerViewNotes.apply {
 			setHasFixedSize(true)
 			layoutManager = viewManager
 			adapter = viewAdapter
@@ -63,7 +65,7 @@ class PreparationFragment : Fragment() {
 	companion object {
 
 		fun newInstance(recipe: Recipe) =
-			PreparationFragment().apply {
+			NotesFragment().apply {
 				arguments = Bundle().apply {
 					putParcelable(RecipeViewModel.RECIPE_KEY, recipe)
 				}
