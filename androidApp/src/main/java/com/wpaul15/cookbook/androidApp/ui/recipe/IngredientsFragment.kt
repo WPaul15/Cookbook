@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wpaul15.cookbook.androidApp.databinding.FragmentIngredientsBinding
+import com.wpaul15.cookbook.androidApp.ui.fragment.recyclerview.IngredientViewHolder
 import com.wpaul15.cookbook.shared.Recipe
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -43,7 +44,7 @@ class IngredientsFragment : Fragment() {
 
 		viewManager = LinearLayoutManager(view.context)
 		viewAdapter = arguments?.getParcelable<Recipe>(RecipeViewModel.RECIPE_KEY)?.let {
-			IngredientsViewAdapter(it)
+			IngredientViewHolder(it.ingredients)
 		}!!
 
 		recyclerView = binding.recyclerViewIngredients.apply {
