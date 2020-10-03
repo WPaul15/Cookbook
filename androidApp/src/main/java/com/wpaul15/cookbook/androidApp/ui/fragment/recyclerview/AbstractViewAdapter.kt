@@ -5,19 +5,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-abstract class AbstractViewAdapter<T>(var items: MutableList<T>) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+abstract class AbstractViewAdapter<in T>(
+    private var items: MutableList<T>,
+    private val layoutResId: Int
+) : RecyclerView.Adapter<AbstractViewAdapter.ViewHolder>() {
 
-    abstract fun bind(item: T, holder: ViewHolder)
+    protected abstract fun View.bind(item: T)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
-        ViewHolder(LayoutInflater.from(parent.context).inflate(viewType, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
+        ViewHolder(LayoutInflater.from(parent.context).inflate(layoutResId, parent, false))
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        bind(items[position], holder as ViewHolder)
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.itemView.bind(items[position])
     }
 
     override fun getItemCount(): Int = items.size
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 }
