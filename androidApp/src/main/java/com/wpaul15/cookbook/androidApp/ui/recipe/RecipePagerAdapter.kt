@@ -7,6 +7,8 @@ import com.wpaul15.cookbook.androidApp.R
 import com.wpaul15.cookbook.androidApp.ui.fragment.recyclerview.RecyclerViewFragment
 import com.wpaul15.cookbook.shared.Recipe
 import kotlinx.android.synthetic.main.view_holder_ingredient.view.*
+import kotlinx.android.synthetic.main.view_holder_note.view.*
+import kotlinx.android.synthetic.main.view_holder_preparation.view.*
 
 class RecipePagerAdapter(
 	fragmentActivity: FragmentActivity,
@@ -21,11 +23,22 @@ class RecipePagerAdapter(
 			0 -> RecyclerViewFragment.newInstance(
 				recipe.ingredients,
 				R.layout.view_holder_ingredient
-			) {
-				text_ingredient.text = "$it"
+			) { _, item ->
+				text_ingredient.text = "$item"
 			}
-			1 -> PreparationFragment.newInstance(recipe)
-			2 -> NotesFragment.newInstance(recipe)
+			1 -> RecyclerViewFragment.newInstance(
+				recipe.instructions,
+				R.layout.view_holder_preparation
+			) { position, item ->
+				text_step_number.text = "${position + 1}"
+				text_instruction.text = item
+			}
+			2 -> RecyclerViewFragment.newInstance(
+				recipe.notes,
+				R.layout.view_holder_note
+			) { _, item ->
+				text_note.text = item
+			}
 			else -> throw Exception("Invalid tab")
 		}
 }

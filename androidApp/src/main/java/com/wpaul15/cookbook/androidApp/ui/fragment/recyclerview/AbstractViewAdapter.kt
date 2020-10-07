@@ -10,13 +10,13 @@ abstract class AbstractViewAdapter<in T>(
     private val layoutResId: Int
 ) : RecyclerView.Adapter<AbstractViewAdapter.ViewHolder>() {
 
-    protected abstract fun View.bind(item: T)
+    protected abstract fun View.bind(position: Int, item: T)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(LayoutInflater.from(parent.context).inflate(layoutResId, parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemView.bind(items[position])
+        holder.itemView.bind(position, items[position])
     }
 
     override fun getItemCount(): Int = items.size

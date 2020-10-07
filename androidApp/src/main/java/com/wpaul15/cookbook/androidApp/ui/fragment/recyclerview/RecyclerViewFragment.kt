@@ -1,7 +1,6 @@
 package com.wpaul15.cookbook.androidApp.ui.fragment.recyclerview
 
 import android.os.Bundle
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,7 @@ import androidx.fragment.app.Fragment
 import com.wpaul15.cookbook.androidApp.databinding.FragmentRecyclerViewBinding
 import java.io.Serializable
 
-class RecyclerViewFragment<T : Parcelable> : Fragment() {
+class RecyclerViewFragment<T> : Fragment() {
 
     private var _binding: FragmentRecyclerViewBinding? = null
     private val binding get() = _binding!!
@@ -26,15 +25,11 @@ class RecyclerViewFragment<T : Parcelable> : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val items = arguments?.getParcelableArrayList<T>(KEY_ITEMS_LIST)?.toMutableList()!!
+        val items = arguments?.getSerializable(KEY_ITEMS_LIST)!! as MutableList<T>
         val layoutResId = arguments?.getInt(KEY_LAYOUT_RES_ID)!!
-        val bindHolder: View.(T) -> Unit
-        try {
-            bindHolder = arguments?.getSerializable(KEY_BIND_HOLDER)!! as View.(T) -> Unit
-            binding.recyclerViewList.init(items, layoutResId, bindHolder)
-        } catch (ex: Exception) {
-            ex.printStackTrace()
-        }
+        val bindHolder = arguments?.getSerializable(KEY_BIND_HOLDER)!! as View.(Int, T) -> Unit
+
+        binding.recyclerViewList.init(items, layoutResId, bindHolder)
     }
 
     override fun onDestroyView() {
@@ -48,13 +43,13 @@ class RecyclerViewFragment<T : Parcelable> : Fragment() {
         const val KEY_LAYOUT_RES_ID: String = "com.wpaul15.cookbook.LAYOUT_RES_ID"
         const val KEY_BIND_HOLDER: String = "com.wpaul15.cookbook.BIND_HOLDER"
 
-        fun <T : Parcelable> newInstance(
+        fun <T> newInstance(
             items: MutableList<T>,
             layoutResId: Int,
-            bindHolder: View.(T) -> Unit
+            bindHolder: View.(Int, T) -> Unit
         ) = RecyclerViewFragment<T>().apply {
             arguments = Bundle().apply {
-                putParcelableArrayList(KEY_ITEMS_LIST, ArrayList<Parcelable>(items))
+                putSerializable(KEY_ITEMS_LIST, items as Serializable)
                 putInt(KEY_LAYOUT_RES_ID, layoutResId)
                 putSerializable(KEY_BIND_HOLDER, bindHolder as Serializable)
             }
