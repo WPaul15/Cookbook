@@ -68,6 +68,7 @@ android {
 		getByName("main").res.srcDirs(
 			"src/main/res",
 			"src/main/res/layouts",
+			"src/main/res/layouts/fragment",
 			"src/main/res/layouts/main",
 			"src/main/res/layouts/recipe"
 		)
