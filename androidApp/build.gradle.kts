@@ -21,13 +21,14 @@ dependencies {
 	implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
 	implementation("com.google.android.material:material:1.2.1")
 	implementation("androidx.appcompat:appcompat:1.2.0")
-	implementation("androidx.constraintlayout:constraintlayout:2.0.1")
+	implementation("androidx.constraintlayout:constraintlayout:2.0.2")
 	implementation("androidx.recyclerview:recyclerview:1.1.0")
-	implementation("androidx.recyclerview:recyclerview-selection:1.1.0-rc02")
+	implementation("androidx.recyclerview:recyclerview-selection:1.1.0-rc03")
 	implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
 	implementation("androidx.fragment:fragment-ktx:1.2.5")
 	implementation("com.google.dagger:hilt-android:2.29-alpha")
 	implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02")
+	implementation("androidx.preference:preference:1.1.1")
 	kapt("androidx.hilt:hilt-compiler:1.0.0-alpha02")
 	kapt("com.google.dagger:hilt-android-compiler:2.29-alpha")
 
@@ -70,7 +71,8 @@ android {
 			"src/main/res/layouts",
 			"src/main/res/layouts/fragment",
 			"src/main/res/layouts/main",
-			"src/main/res/layouts/recipe"
+			"src/main/res/layouts/recipe",
+			"src/main/res/layouts/settings"
 		)
 	}
 }

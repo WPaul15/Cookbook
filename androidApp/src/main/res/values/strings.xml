@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="title_main_activity" translatable="false">Cookbook</string>
-	<string name="title_activity_recipe">Recipe</string>
-	<string name="button_open_recipe_view">Open Recipe</string>
-	<string name="tab_ingredients">Ingredients</string>
-	<string name="tab_preparation">Preparation</string>
-	<string name="tab_notes">Notes</string>
+    <!-- Activity Titles -->
+    <string name="title_main_activity" translatable="false">Cookbook</string>
+    <string name="title_activity_recipe">Recipe</string>
+    <string name="title_activity_settings">Settings</string>
+
+
+    <string name="button_open_recipe_view">Open Recipe</string>
+    <string name="tab_ingredients">Ingredients</string>
+    <string name="tab_preparation">Preparation</string>
+    <string name="tab_notes">Notes</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Preference Group Titles -->
+    <string name="preference_theme_header">Choose your style</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Theme Preferences -->
+    <string name="preference_theme_title">Current Theme</string>
+    <string name="preference_theme_modern">Modern</string>
+    <string name="preference_theme_chic">Chic</string>
+    <string name="preference_theme_bright">Bright</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="action_about">About</string>
 </resources>
