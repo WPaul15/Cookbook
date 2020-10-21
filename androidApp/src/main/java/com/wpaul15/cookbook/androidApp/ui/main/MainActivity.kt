@@ -3,11 +3,15 @@ package com.wpaul15.cookbook.androidApp.ui.main
 import android.app.Application
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.wpaul15.cookbook.androidApp.R
+import com.wpaul15.cookbook.androidApp.databinding.ActivityMainBinding
 import com.wpaul15.cookbook.androidApp.ui.recipe.RecipeActivity
 import com.wpaul15.cookbook.androidApp.ui.recipe.RecipeViewModel
+import com.wpaul15.cookbook.androidApp.ui.settings.SettingsActivity
 import com.wpaul15.cookbook.shared.Ingredient
 import com.wpaul15.cookbook.shared.Measurement
 import com.wpaul15.cookbook.shared.Recipe
@@ -18,9 +22,26 @@ class CookbookApplication : Application()
 
 class MainActivity : AppCompatActivity() {
 
+	private lateinit var binding: ActivityMainBinding
+
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
-		setContentView(R.layout.activity_main)
+		binding = ActivityMainBinding.inflate(layoutInflater)
+		setContentView(binding.root)
+		setSupportActionBar(binding.toolbarMain)
+	}
+
+	override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+		menuInflater.inflate(R.menu.menu_main, menu)
+		return true
+	}
+
+	override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+		R.id.action_settings -> {
+			openSettingsActivity()
+			true
+		}
+		else -> super.onOptionsItemSelected(item)
 	}
 
 	fun openRecipeViewActivity(view: View) {
@@ -37,5 +58,9 @@ class MainActivity : AppCompatActivity() {
 		}
 
 		startActivity(intent)
+	}
+
+	fun openSettingsActivity() {
+		startActivity(Intent(this, SettingsActivity::class.java))
 	}
 }

@@ -5,4 +5,17 @@
 	<string name="tab_ingredients">Zutaten</string>
 	<string name="tab_preparation">Zubereitung</string>
 	<string name="tab_notes">Notizen</string>
+	<string name="action_settings">Einstellungen</string>
+	<string name="title_activity_settings">Einstellungen</string>
+	<string name="preference_theme_header">Ihr Stil auswählen</string>
+	<string name="action_about">Über</string>
+	<string name="sync_header">Synchronisieren</string>
+	<string name="preference_theme_title">Aktuelles Thema</string>
+	<string name="sync_title">E-Mail periodisch synchronisieren</string>
+	<string name="attachment_title">Eingehende Anhänge herunterladen</string>
+	<string name="attachment_summary_off">Anhänge nur wenn per Hand verlangt herunterladen</string>
+	<string name="attachment_summary_on">Anhänge bei eingehenden E-Mails automatisch herunterladen</string>
+	<string name="preference_theme_modern">Modern</string>
+	<string name="preference_theme_chic">Schick</string>
+	<string name="preference_theme_bright">Hell</string>
 </resources>
